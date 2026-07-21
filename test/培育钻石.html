@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国培育钻石选购指南</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 60px 0 50px;
+    position: relative;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: #555;
+    font-weight: 400;
+  }
+  .hero .sparkle {
+    display: inline-block;
+    font-size: 2.4rem;
+    margin-bottom: 6px;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  @keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+    50% { transform: scale(1.15) rotate(10deg); opacity: 1; }
+  }
+
+  /* Section */
+  .section {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    border: 1px solid rgba(255,255,255,0.5);
+    transition: transform 0.2s ease;
+  }
+  .section:hover {
+    transform: translateY(-2px);
+  }
+  .section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+    display: inline-block;
+  }
+  .section p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 14px;
+  }
+  .section p:last-child { margin-bottom: 0; }
+
+  /* Brand cards */
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 14px;
+  }
+  .brand-card {
+    background: #f8f9ff;
+    border-radius: 14px;
+    padding: 20px 18px;
+    border-left: 4px solid #667eea;
+    transition: all 0.2s ease;
+  }
+  .brand-card:hover {
+    background: #eef0ff;
+    border-left-color: #764ba2;
+  }
+  .brand-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+  }
+  .brand-card .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: #667eea;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .brand-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* Tier label */
+  .tier-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 3px 14px;
+    border-radius: 20px;
+    margin-right: 4px;
+  }
+  .tier-gold { background: #fff3cd; color: #856404; }
+  .tier-green { background: #d4edda; color: #155724; }
+  .tier-blue { background: #d6e8ff; color: #1a5276; }
+
+  /* Purchase channels */
+  .channel-list {
+    list-style: none;
+    padding: 0;
+  }
+  .channel-list li {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: #f8f9ff;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #444;
+  }
+  .channel-list li .emoji {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .channel-list li strong {
+    color: #1a1a2e;
+  }
+
+  /* Tips */
+  .tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .tip-item {
+    background: #f0f4ff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    color: #333;
+    border: 1px solid #e0e7ff;
+  }
+  .tip-item .num {
+    display: inline-block;
+    width: 24px; height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background: #667eea;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.85rem;
+    padding-top: 10px;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .container { padding: 20px 16px 60px; }
+    .hero h1 { font-size: 2rem; }
+    .section { padding: 24px 20px; }
+    .brand-grid { grid-template-columns: 1fr; }
+    .tips { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="sparkle">💎</div>
+    <h1>中国培育钻石选购指南</h1>
+    <p class="subtitle">实验室培育钻石 · 一样是纯碳真钻石 · 价格仅天然钻的十分之一</p>
+  </div>
+
+  <!-- Intro -->
+  <div class="section">
+    <h2>🌟 什么是培育钻石？</h2>
+    <p>培育钻石（Lab-Grown Diamond）是在实验室中通过 <strong>HPHT（高温高压）</strong> 或 <strong>CVD（化学气相沉积）</strong> 技术模拟天然钻石生长环境培育而成的真钻石。其化学成分（纯碳）、晶体结构、硬度、折射率与天然钻石完全一致，肉眼和普通仪器都无法区分——必须用专业光谱仪才能鉴别。</p>
+    <p>中国是全球最大的培育钻石生产国，占全球产能的 <strong>50% 以上</strong>，主要产区在河南（郑州、柘城）、深圳水贝和上海。</p>
+  </div>
+
+  <!-- 上游厂家 -->
+  <div class="section">
+    <h2>🏭 主要生产厂家（上游）</h2>
+    <p>这些是中国最大的培育钻石原石生产商，多为上市公司，技术成熟、产能巨大：</p>
+    <div class="brand-grid">
+      <div class="brand-card">
+        <div><span class="tier-label tier-gold">上市公司</span></div>
+        <h3>黄河旋风</h3>
+        <p>600172.SH，国内老牌工业金刚石巨头，HPHT 技术领先，珠宝级培育钻石产量大、品质稳定。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-gold">上市公司</span></div>
+        <h3>中兵红箭</h3>
+        <p>000519.SZ，央企背景，超硬材料龙头，培育钻石原石质量和产能均属第一梯队。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-gold">上市公司</span></div>
+        <h3>力量钻石</h3>
+        <p>301071.SZ，专注重工金刚石与培育钻石，高色级大克拉钻石优势明显，IGI 认证普及度高。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-blue">技术派</span></div>
+        <h3>上海征世科技</h3>
+        <p>全球 CVD 技术领军企业，MPCVD 法生产高品质无色钻石，旗下品牌 Z Diamond。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-blue">国家队</span></div>
+        <h3>三磨所（国机精工）</h3>
+        <p>002046.SZ，中国第一颗人造金刚石的诞生地，旗下品牌<strong>黛诺 DEINO</strong>，专注异形钻切割。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-blue">豫园系</span></div>
+        <h3>豫园珠宝时尚集团</h3>
+        <p>复星旗下，上市公司豫园股份（600655.SH），旗下培育钻石品牌<strong>露璨 LUSANT</strong>，设计感强。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 零售品牌推荐 -->
+  <div class="section">
+    <h2>🛒 零售品牌推荐</h2>
+    <p>以下品牌均已获得市场验证，提供 IGI / GIA / NGTC 权威证书，线上线下均可购买：</p>
+    <div class="brand-grid">
+      <div class="brand-card">
+        <div><span class="tier-label tier-gold">强烈推荐</span></div>
+        <h3>纪派珠宝 J.Paragon</h3>
+        <p>全产业链自研，同时掌握 HPHT + CVD 技术，支持生命钻石定制（毛发提取碳源），标配 D色 VVS 3EX，可出 GIA + IGI 双证，品质与口碑领先。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-green">异形钻专精</span></div>
+        <h3>黛诺 DEINO</h3>
+        <p>三磨所旗下，专注异形培育钻（椭圆、祖母绿、雷迪恩等），独立建模戒托，辨识度极高，适合追求小众设计的用户。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-green">性价比之选</span></div>
+        <h3>仙仙培育钻石</h3>
+        <p>郑州本土品牌，2013 年成立，自有工厂 + 实体店，一克拉高品质约 5000-6000 元，配 IGI 上海版证书，口碑扎实。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-green">线上热门</span></div>
+        <h3>小白光 LightMark</h3>
+        <p>2020 年成立，年轻时尚定位，覆盖钻戒、项链、耳饰全场景，淘宝/抖音/小红书均有旗舰店。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-green">源头直供</span></div>
+        <h3>缘美培育钻石</h3>
+        <p>深圳水贝源头工厂直营，砍掉中间商，主打裸石高性价比，30 分到 2 克拉现货充足，支持镶嵌定制。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-green">上市背景</span></div>
+        <h3>慕璨 OWN SHINE</h3>
+        <p>曼卡龙旗下子品牌，东方简约轻奢风，全国标准化售后，适合看重实体体验和长期保障的用户。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-green">国际品牌</span></div>
+        <h3>凯丽希 CARAXY</h3>
+        <p>国内较早的培育钻石品牌，国际培育钻石协会（IGDA）会员，2021 年推出在线 3D 虚拟试戴。</p>
+      </div>
+      <div class="brand-card">
+        <div><span class="tier-label tier-blue">定制高端</span></div>
+        <h3>FELIN 斐洛拉</h3>
+        <p>郑州高端定制品牌，专注 CVD 高色钻石，提供 GIA/IGI+NGTC 三证，Sarine 光学认证。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 购买渠道 -->
+  <div class="section">
+    <h2>🛍️ 在哪里购买？</h2>
+    <ul class="channel-list">
+      <li><span class="emoji">🛒</span><div><strong>淘宝 / 天猫</strong> — 搜索"培育钻石"，LightMark、仙仙、凯丽希等均有旗舰店。注意看证书（认准 IGI 上海版或 GIA）。</div></li>
+      <li><span class="emoji">📱</span><div><strong>抖音 / 小红书</strong> — 很多源头工厂和品牌直播间直接卖裸钻，价格透明，支持复检。推荐关注"仙仙培育钻石""缘美钻石"等。</div></li>
+      <li><span class="emoji">🏬</span><div><strong>实体门店：深圳水贝</strong> — 全国最大的珠宝集散地，水贝壹号、水贝国际、水贝金展等地有大量培育钻石展厅，性价比最高。</div></li>
+      <li><span class="emoji">🏪</span><div><strong>实体门店：郑州</strong> — 培育钻石之都，仙仙、FELIN、天宸之钻等都有实体店，可当面选钻看火彩。</div></li>
+      <li><span class="emoji">🏙️</span><div><strong>一线城市商场</strong> — LightMark 在北京/上海/深圳有实体体验店，慕璨在曼卡龙专柜有售，豫园旗下 LUSANT 在老庙黄金等门店可看。</div></li>
+      <li><span class="emoji">🌐</span><div><strong>品牌官网 / 微信小程序</strong> — 纪派珠宝、黛诺 DEINO、CARAXY 等品牌均支持官网或小程序下单，定制流程透明。</div></li>
+    </ul>
+  </div>
+
+  <!-- 避坑 tips -->
+  <div class="section">
+    <h2>✅ 选购要点 &amp; 避坑指南</h2>
+    <div class="tips">
+      <div class="tip-item"><span class="num">1</span> <strong>认准权威证书</strong>：首选 IGI（上海版）、GIA、NGTC。警惕印度版 IGI 掉级风险。</div>
+      <div class="tip-item"><span class="num">2</span> <strong>一钻一证一腰码</strong>：钻石腰棱上的编码必须与证书一致，官网可查。</div>
+      <div class="tip-item"><span class="num">3</span> <strong>优先自有工厂</strong>：自有工厂能控制全流程品质，售后也更有保障。</div>
+      <div class="tip-item"><span class="num">4</span> <strong>4C 参数建议</strong>：颜色 D-F 色，净度 VVS-VS，切工 3EX，克拉数按预算。</div>
+      <div class="tip-item"><span class="num">5</span> <strong>警惕超低价</strong>：一克拉成品低于 3000 元可能有问题（奶钻、咖钻、套证）。</div>
+      <div class="tip-item"><span class="num">6</span> <strong>支持复检</strong>：购买后去当地 NGTC 或 GIA 复检，验证品质。</div>
+      <div class="tip-item"><span class="num">7</span> <strong>问清售后</strong>：是否支持改圈、翻新、补钻、清洗，问清保修年限。</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>💎 培育钻石是碳，天然钻石也是碳 — 你是买钻石，不是买矿坑。</p>
+    <p style="margin-top:4px;">数据截至 2025-2026 年 · 仅供参考 · 购买前请自行核实</p>
+  </div>
+
+</div>
+
+</body>
+</html>

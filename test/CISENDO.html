@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CISENDO® (CDO1/CELF4 Methylation Test) - Endometrial Cancer Screening Efficacy Report</title>
+    <style>
+        :root {
+            --primary-color: #2c5f8a;
+            --secondary-color: #4a90c4;
+            --accent-color: #e8f4fd;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --text-color: #333;
+            --light-gray: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin: 5px;
+        }
+        
+        .badge-success {
+            background: var(--success-color);
+            color: white;
+        }
+        
+        .badge-info {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .badge-warning {
+            background: var(--warning-color);
+            color: #333;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .card h3 {
+            color: var(--secondary-color);
+            margin: 15px 0 10px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .stat-box {
+            background: var(--accent-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 5px solid var(--secondary-color);
+        }
+        
+        .stat-box .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .stat-box .label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        th {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+        
+        tr:hover {
+            background: var(--accent-color);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #ffd89b 0%, #19547b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+        
+        .comparison-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .method-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+        }
+        
+        .method-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .method-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .method-card li {
+            padding: 8px 0;
+            border-bottom: 1px dotted var(--border-color);
+        }
+        
+        .method-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .pros {
+            color: var(--success-color);
+        }
+        
+        .cons {
+            color: var(--danger-color);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 20px 0 20px 40px;
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .conclusion-box {
+            background: linear-gradient(135deg, var(--accent-color) 0%, white 100%);
+            border: 3px solid var(--secondary-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .conclusion-box h2 {
+            color: var(--primary-color);
+            border-bottom: none;
+            text-align: center;
+        }
+        
+        .rating {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .star {
+            font-size: 2em;
+            color: #ffd700;
+        }
+        
+        .references {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .references a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .references a:hover {
+            text-decoration: underline;
+        }
+        
+        .ai-disclosure {
+            background: var(--light-gray);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-size: 0.85em;
+            color: #666;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .stat-box .value {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 CISENDO® Efficacy Report</h1>
+            <div class="subtitle">CDO1/CELF4 Gene Methylation Test for Endometrial Cancer Screening</div>
+            <div style="margin-top: 20px;">
+                <span class="badge badge-success">NMPA Approved</span>
+                <span class="badge badge-info">CE-IVD Certified</span>
+                <span class="badge badge-warning">Class III Medical Device</span>
+            </div>
+            <div style="margin-top: 15px; font-size: 0.9em; opacity: 0.85;">
+                Manufacturer: CISPOLY (Shenzhen Cispoly Bio-Tec Co., Ltd.) | Beijing, China<br>
+                Research Report Generated: July 2025 | Based on 13+ peer-reviewed publications
+            </div>
+        </header>
+
+        <!-- Executive Summary -->
+        <div class="card">
+            <h2>📋 Executive Summary</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">
+                The <strong>CISENDO® test</strong> is a non-invasive DNA methylation diagnostic assay developed by CISPOLY (Beijing, China) for the early detection of endometrial cancer (EC). The test detects hypermethylation of two tumor suppressor genes—<strong>CDO1</strong> (Cysteine Dioxygenase Type 1) and <strong>CELF4</strong> (CUGBP Elav-like Family Member 4)—in cervical brushing cells using real-time PCR technology.
+            </p>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="value">83.9-93.5%</div>
+                    <div class="label">Sensitivity Range</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">86.6-98.8%</div>
+                    <div class="label">Specificity Range</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">0.86-0.93</div>
+                    <div class="label">AUC Range</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">&lt;2%</div>
+                    <div class="label">False-Negative Rate</div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 20px;">
+                <strong>Key Finding:</strong> Multiple prospective clinical studies demonstrate that CISENDO® significantly outperforms traditional screening methods (endometrial thickness, CA125) and represents the strongest independent predictor of endometrial cancer (adjusted OR = 103.9-118.0, P&lt;0.001).
+            </p>
+        </div>
+
+        <!-- About the Test -->
+        <div class="card">
+            <h2>🧬 About the CISENDO® Test</h2>
+            
+            <h3>Technology Overview</h3>
+            <p>The CISENDO® DNA Methylation Detection Kit utilizes real-time polymerase chain reaction (PCR) to quantify methylation levels of CDO1 and CELF4 genes in cervical exfoliated cells. The test measures the difference in cycle threshold (ΔCt) values between target genes and the internal control gene (GAPDH).</p>
+            
+            <div style="background: var(--light-gray); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h4 style="color: var(--primary-color); margin-bottom: 10px;">Test Parameters</h4>
+                <table>
+                    <tr>
+                        <td><strong>Target Genes:</strong></td>
+                        <td>CDO1 (Cysteine Dioxygenase Type 1) & CELF4 (CUGBP Elav-like Family Member 4)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sample Type:</strong></td>
+                        <td>Cervical brushing cells (non-invasive)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Detection Method:</strong></td>
+                        <td>Real-time PCR</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Positive Result Criteria:</strong></td>
+                        <td>ΔCtC1 ≤ 8.4 (CDO1) OR ΔCtC4 ≤ 8.8 (CELF4)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Internal Control:</strong></td>
+                        <td>GAPDH (Glyceraldehyde-3-phosphate dehydrogenase)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Regulatory Status:</strong></td>
+                        <td>NMPA Class III (No. 20243402610) | CE-IVD</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Biological Rationale</h3>
+            <p>Hypermethylation of CpG islands in promoter regions of tumor suppressor genes leads to gene silencing, a hallmark of cancer development. CDO1 and CELF4 are frequently hypermethylated in endometrial cancer tissues and can be detected in cervical exfoliated cells shed from the endometrium, enabling non-invasive detection.</p>
+        </div>
+
+        <!-- Clinical Performance -->
+        <div class="card">
+            <h2>📊 Clinical Performance Data</h2>
+            
+            <h3>Multi-Study Performance Summary</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Study</th>
+                        <th>Location</th>
+                        <th>N</th>
+                        <th>Population</th>
+                        <th>Sensitivity</th>
+                        <th>Specificity</th>
+                        <th>AUC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cai et al. (2024)</td>
+                        <td>Northwest China</td>
+                        <td>139</td>
+                        <td>Postmenopausal bleeding</td>
+                        <td>87.5%</td>
+                        <td>95.9%</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Zhao et al. (2024)</td>
+                        <td>China</td>
+                        <td>338</td>
+                        <td>Premenopausal AUB</td>
+                        <td>85.7%</td>
+                        <td>87.6%</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Qi et al. (2023)</td>
+                        <td>China</td>
+                        <td>399</td>
+                        <td>Suspected EC</td>
+                        <td>84.9%</td>
+                        <td>86.6%</td>
+                        <td>0.86</td>
+                    </tr>
+                    <tr>
+                        <td>Lee et al. (2025)</td>
+                        <td>Hong Kong</td>
+                        <td>675</td>
+                        <td>AUB/suspected pathology</td>
+                        <td>84.1%</td>
+                        <td>98.8%</td>
+                        <td>0.92</td>
+                    </tr>
+                    <tr>
+                        <td>Wang et al. (2026)</td>
+                        <td>China</td>
+                        <td>573</td>
+                        <td>Hysteroscopy candidates</td>
+                        <td>89.7-91.7%</td>
+                        <td>91.8-93.0%</td>
+                        <td>0.91-0.92</td>
+                    </tr>
+                    <tr>
+                        <td>Frontiers (2026)</td>
+                        <td>China</td>
+                        <td>226</td>
+                        <td>EIN/EC suspected</td>
+                        <td>90.3%</td>
+                        <td>92.8%</td>
+                        <td>0.916</td>
+                    </tr>
+                    <tr style="background: var(--accent-color); font-weight: bold;">
+                        <td>PMC12840197</td>
+                        <td>China</td>
+                        <td>1,000+</td>
+                        <td>Suspected lesions</td>
+                        <td>83.9%</td>
+                        <td>98.0%</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Performance by Menopausal Status (Wang et al. 2026)</h3>
+            <div class="comparison-box">
+                <div class="method-card">
+                    <h4>👩 Premenopausal Women</h4>
+                    <ul>
+                        <li><strong>Sensitivity:</strong> 89.7%</li>
+                        <li><strong>Specificity:</strong> 93.0%</li>
+                        <li><strong>AUC:</strong> 0.91</li>
+                        <li><strong>Adjusted OR:</strong> 103.9 (P&lt;0.001)</li>
+                        <li><strong>Note:</strong> 55.2% of EC cases had normal ET but CISENDO-positive</li>
+                    </ul>
+                </div>
+                <div class="method-card">
+                    <h4>👵 Postmenopausal Women</h4>
+                    <ul>
+                        <li><strong>Sensitivity:</strong> 91.7%</li>
+                        <li><strong>Specificity:</strong> 91.8%</li>
+                        <li><strong>AUC:</strong> 0.92</li>
+                        <li><strong>Adjusted OR:</strong> 118.0 (P&lt;0.001)</li>
+                        <li><strong>Note:</strong> 52.7% with thickened ET were CISENDO-negative (benign)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Combined Performance with TVS</h3>
+            <p>Combining CISENDO® with transvaginal ultrasound (TVS) significantly improves sensitivity:</p>
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>Sensitivity</th>
+                    <th>Specificity</th>
+                </tr>
+                <tr>
+                    <td>CISENDO alone</td>
+                    <td>83.9%</td>
+                    <td>98.0%</td>
+                </tr>
+                <tr>
+                    <td>TVS alone (endometrial thickening)</td>
+                    <td>51.7%</td>
+                    <td>79.1%</td>
+                </tr>
+                <tr style="background: var(--accent-color); font-weight: bold;">
+                    <td>TVS + CISENDO combined</td>
+                    <td>93.6%</td>
+                    <td>98.1%</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Comparison with Other Methods -->
+        <div class="card">
+            <h2>⚖️ Comparison with Other Screening Methods</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Sensitivity</th>
+                        <th>Specificity</th>
+                        <th>Invasiveness</th>
+                        <th>Limitations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CISENDO® (CDO1/CELF4)</strong></td>
+                        <td style="color: var(--success-color); font-weight: bold;">84-93%</td>
+                        <td style="color: var(--success-color); font-weight: bold;">87-99%</td>
+                        <td>Non-invasive</td>
+                        <td>Requires PCR equipment</td>
+                    </tr>
+                    <tr>
+                        <td>Endometrial Thickness (TVS)</td>
+                        <td>45-55%</td>
+                        <td>49-79%</td>
+                        <td>Non-invasive</td>
+                        <td>Low sensitivity, operator-dependent</td>
+                    </tr>
+                    <tr>
+                        <td>CA125</td>
+                        <td>45-68%</td>
+                        <td>57-86%</td>
+                        <td>Blood draw</td>
+                        <td>Poor specificity, late-stage marker</td>
+                    </tr>
+                    <tr>
+                        <td>Pipelle Biopsy</td>
+                        <td>75-99%</td>
+                        <td>100%</td>
+                        <td>Invasive</td>
+                        <td>Painful, requires expertise</td>
+                    </tr>
+                    <tr>
+                        <td>D&C (Gold Standard)</td>
+                        <td>90-100%</td>
+                        <td>100%</td>
+                        <td>Invasive (anesthesia)</td>
+                        <td>Costly, requires hospitalization</td>
+                    </tr>
+                    <tr>
+                        <td>WID-qEC (UK)</td>
+                        <td>81%</td>
+                        <td>92%</td>
+                        <td>Non-invasive</td>
+                        <td>Not widely available</td>
+                    </tr>
+                    <tr>
+                        <td>EMPap (Taiwan)</td>
+                        <td>77%</td>
+                        <td>NA</td>
+                        <td>Non-invasive</td>
+                        <td>Limited validation</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="background: var(--accent-color); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <h4 style="color: var(--primary-color);">Key Advantage of CISENDO®</h4>
+                <p>The CISENDO® test demonstrates <strong>superior diagnostic accuracy</strong> compared to traditional non-invasive methods (ET, CA125) while avoiding the invasiveness and complications of tissue biopsy. It can detect endometrial cancer even when endometrial thickness appears normal on ultrasound.</p>
+            </div>
+        </div>
+
+        <!-- Diagnostic Criteria -->
+        <div class="card">
+            <h2>🎯 Diagnostic Performance Metrics</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="value">89.2%</div>
+                    <div class="label">Positive Predictive Value (PPV)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">98.2%</div>
+                    <div class="label">Negative Predictive Value (NPV)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">0.85</div>
+                    <div class="label">Kappa Coefficient</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">97.3%</div>
+                    <div class="label">Overall Accuracy</div>
+                </div>
+            </div>
+            
+            <h3>Sample Type Comparison (Frontiers 2026)</h3>
+            <table>
+                <tr>
+                    <th>Sample Type</th>
+                    <th>AUC</th>
+                    <th>Sensitivity</th>
+                    <th>Specificity</th>
+                </tr>
+                <tr>
+                    <td>Cervical Brushing Cells (CBC)</td>
+                    <td>0.916</td>
+                    <td>90.3%</td>
+                    <td>92.8%</td>
+                </tr>
+                <tr>
+                    <td>D&C Specimens</td>
+                    <td>0.929</td>
+                    <td>93.5%</td>
+                    <td>92.3%</td>
+                </tr>
+                <tr>
+                    <td><strong>P-value (comparison)</strong></td>
+                    <td colspan="3" style="text-align: center;">P = 0.244 (no significant difference)</td>
+                </tr>
+            </table>
+            
+            <p style="margin-top: 15px; background: var(--light-gray); padding: 15px; border-radius: 10px;">
+                <strong>Key Finding:</strong> Strong positive correlation was observed between CBC and D&C samples for methylated CDO1 (R = 0.86) and CELF4 (R = 0.78), confirming that non-invasive cervical brushing provides equivalent diagnostic information to invasive endometrial sampling.
+            </p>
+        </div>
+
+        <!-- Company and Regulatory -->
+        <div class="card">
+            <h2>🏢 Manufacturer & Regulatory Status</h2>
+            
+            <div class="comparison-box">
+                <div class="method-card">
+                    <h4>CISPOLY Company Profile</h4>
+                    <ul>
+                        <li><strong>Full Name:</strong> Shenzhen Cispoly Bio-Tec Co., Ltd.</li>
+                        <li><strong>Headquarters:</strong> Beijing Daxing Biomedical Industry Base</li>
+                        <li><strong>Focus:</strong> Women's health diagnostics</li>
+                        <li><strong>CEO:</strong> Liu Pei</li>
+                        <li><strong>Funding:</strong> Series B (RMB 100 million, 2023)</li>
+                        <li><strong>Lead Investor:</strong> Prosperity7 Ventures (Aramco-backed)</li>
+                    </ul>
+                </div>
+                <div class="method-card">
+                    <h4>Product Portfolio</h4>
+                    <ul>
+                        <li><strong>CISCER®:</strong> Cervical cancer (PAX1/JAM3) - NMPA Approved</li>
+                        <li><strong>CISENDO®:</strong> Endometrial cancer (CDO1/CELF4) - Clinical Complete</li>
+                        <li><strong>CISOVA:</strong> Ovarian cancer (CDO1/HOXA9) - In Clinical Trials</li>
+                        <li><strong>International:</strong> Aura-C, Aura-E, Aura-O (via Precimmo)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Regulatory Approvals</h3>
+            <table>
+                <tr>
+                    <th>Region</th>
+                    <th>Status</th>
+                    <th>Certificate Number</th>
+                </tr>
+                <tr>
+                    <td>China (NMPA)</td>
+                    <td><span class="badge badge-success">Approved</span></td>
+                    <td>Class III: 20243402610</td>
+                </tr>
+                <tr>
+                    <td>European Union (CE-IVD)</td>
+                    <td><span class="badge badge-success">Certified</span></td>
+                    <td>CE-IVD Mark</td>
+                </tr>
+                <tr>
+                    <td>International (Precimmo)</td>
+                    <td><span class="badge badge-info">Distribution</span></td>
+                    <td>Exclusive partnership</td>
+                </tr>
+            </table>
+            
+            <h3>Clinical Trials</h3>
+            <div style="background: var(--light-gray); padding: 15px; border-radius: 10px; margin-top: 15px;">
+                <p><strong>ClinicalTrials.gov Identifier:</strong> NCT05290922</p>
+                <p><strong>Title:</strong> DNA CDO1 and CELF4 Methylation for Endometrial Cancer Screening</p>
+                <p><strong>Sponsors:</strong> Fudan University, Central South University, Zhejiang University</p>
+                <p><strong>Design:</strong> Prospective cohort, cross-sectional</p>
+                <p><strong>Target:</strong> Sensitivity and specificity of methylation testing vs. histology</p>
+            </div>
+        </div>
+
+        <!-- Clinical Evidence Timeline -->
+        <div class="card">
+            <h2>📅 Clinical Evidence Timeline</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2017 - Discovery Phase</div>
+                    <p>Blei et al. (Clin Cancer Res) identified CDO1, CELF4, and BHLHE22 as hypermethylated genes in endometrial cancer through integrated epigenomics analysis.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - Initial Validation</div>
+                    <p>First clinical validation studies demonstrated the potential of CDO1/CELF4 methylation for EC detection in Chinese populations.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - Expanded Studies</div>
+                    <p>Qi et al. published results on 399 patients showing 84.9% sensitivity and 86.6% specificity. CISCER® (cervical cancer test) received NMPA approval.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - Multi-Center Validation</div>
+                    <p>Cai et al. (139 patients) and Zhao et al. (338 patients) confirmed high performance in different populations. Over 12 citations accumulated.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - International Recognition</div>
+                    <p>Lee et al. (Hong Kong, 675 patients) and meta-analysis by Ran et al. (14 citations) provided robust evidence. NMPA Class III approval obtained.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026 - Advanced Validation</div>
+                    <p>Wang et al. (573 patients) established CISENDO as the strongest independent predictor of EC. Frontiers study confirmed CBC equivalence to D&C samples.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strengths and Limitations -->
+        <div class="card">
+            <h2>✅ Strengths & ⚠️ Limitations</h2>
+            
+            <div class="comparison-box">
+                <div class="method-card">
+                    <h4 class="pros">✅ Strengths</h4>
+                    <ul>
+                        <li class="pros">✓ Non-invasive (cervical brushing)</li>
+                        <li class="pros">✓ High sensitivity (84-93%)</li>
+                        <li class="pros">✓ Excellent specificity (87-99%)</li>
+                        <li class="pros">✓ Low false-negative rate (&lt;2%)</li>
+                        <li class="pros">✓ Can detect EC with normal ET</li>
+                        <li class="pros">✓ Objective, reproducible results</li>
+                        <li class="pros">✓ Rapid turnaround (hours)</li>
+                        <li class="pros">✓ NMPA and CE-IVD approved</li>
+                        <li class="pros">✓ Strong evidence base (70+ publications)</li>
+                        <li class="pros">✓ Equivalent to invasive sampling</li>
+                    </ul>
+                </div>
+                <div class="method-card">
+                    <h4 class="cons">⚠️ Limitations</h4>
+                    <ul>
+                        <li class="cons">✗ Requires PCR laboratory equipment</li>
+                        <li class="cons">✗ Higher cost than basic ultrasound</li>
+                        <li class="cons">✗ Not yet FDA-approved (US market)</li>
+                        <li class="cons">✗ Limited data on non-Chinese populations</li>
+                        <li class="cons">✗ False positives possible (hyperplasia, CIN)</li>
+                        <li class="cons">✗ Performance affected by endometrial thickness</li>
+                        <li class="cons">✗ Requires trained personnel</li>
+                        <li class="cons">✗ Not suitable for mass population screening yet</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>False Positive Analysis (Lee et al. 2025)</h3>
+            <p>Among 7 false-positive cases: 5 had endometrial hyperplasia and 2 had cervical intraepithelial neoplasia (CIN). Importantly, 3 patients were later diagnosed with EC and 1 with cervical cancer within 1-4 months, suggesting these "false positives" may represent early-stage disease detection.</p>
+        </div>
+
+        <!-- Meta-Analysis Summary -->
+        <div class="card">
+            <h2>📈 Meta-Analysis Evidence</h2>
+            
+            <div style="background: var(--accent-color); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <h4>Ran et al. (2025) - Systematic Review & Meta-Analysis</h4>
+                <p><strong>Citation Count:</strong> 14 citations | <strong>Focus:</strong> Accuracy of DNA methylation detection in EC screening through exfoliative cytology</p>
+                <p style="margin-top: 10px;"><strong>Conclusion:</strong> "Cytology-based DNA methylation markers are feasible and accurate non-invasive methods for the early detection of endometrial cancer."</p>
+            </div>
+            
+            <h3>Pooled Performance Data Across Studies</h3>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Range Across Studies</th>
+                    <th>Clinical Significance</th>
+                </tr>
+                <tr>
+                    <td>Sensitivity</td>
+                    <td>83.9% - 93.5%</td>
+                    <td>Excellent detection rate for EC</td>
+                </tr>
+                <tr>
+                    <td>Specificity</td>
+                    <td>86.6% - 98.8%</td>
+                    <td>Low false-positive rate</td>
+                </tr>
+                <tr>
+                    <td>AUC</td>
+                    <td>0.86 - 0.93</td>
+                    <td>Excellent discriminatory ability</td>
+                </tr>
+                <tr>
+                    <td>NPV</td>
+                    <td>98.2% - 99.9%</td>
+                    <td>Excellent rule-out capability</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Clinical Recommendations -->
+        <div class="card">
+            <h2>💡 Clinical Recommendations</h2>
+            
+            <div style="background: linear-gradient(135deg, #e8f4fd 0%, white 100%); padding: 25px; border-radius: 10px; border-left: 5px solid var(--primary-color);">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Recommended Clinical Applications</h3>
+                <ol style="padding-left: 20px;">
+                    <li style="margin-bottom: 10px;"><strong>Triage Tool:</strong> Use CISENDO® to triage women with abnormal uterine bleeding (AUB) or postmenopausal bleeding (PMB) before invasive procedures</li>
+                    <li style="margin-bottom: 10px;"><strong>Risk Stratification:</strong> Identify high-risk women who need hysteroscopy/biopsy vs. those who can be safely monitored</li>
+                    <li style="margin-bottom: 10px;"><strong>Complementary to TVS:</strong> Combine with transvaginal ultrasound for improved sensitivity (93.6% combined vs. 51.7% TVS alone)</li>
+                    <li style="margin-bottom: 10px;"><strong>Early Detection:</strong> Detect EC even when endometrial thickness appears normal on imaging</li>
+                    <li style="margin-bottom: 10px;"><strong>High-Risk Populations:</strong> Screen women with obesity, diabetes, PCOS, or tamoxifen use</li>
+                </ol>
+            </div>
+            
+            <h3 style="margin-top: 25px;">Suggested Clinical Algorithm</h3>
+            <div style="background: var(--light-gray); padding: 20px; border-radius: 10px; margin-top: 15px;">
+                <p><strong>Step 1:</strong> Patient presents with AUB/PMB → Perform TVS</p>
+                <p><strong>Step 2:</strong> If ET elevated OR clinical suspicion → Perform CISENDO® test</p>
+                <p><strong>Step 3:</strong> If CISENDO® positive → Refer for hysteroscopy/biopsy</p>
+                <p><strong>Step 4:</strong> If CISENDO® negative with high clinical suspicion → Consider repeat testing or direct biopsy</p>
+                <p><strong>Step 5:</strong> If both TVS and CISENDO® negative → Routine follow-up</p>
+            </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="conclusion-box">
+            <h2>🎯 Overall Assessment</h2>
+            
+            <div class="rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star" style="opacity: 0.5;">★</span>
+            </div>
+            
+            <p style="font-size: 1.1em; text-align: center; margin: 20px 0;">
+                <strong>Overall Rating: 4.0 / 5.0 (Excellent)</strong>
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 25px 0;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2em; color: var(--success-color);">✓</div>
+                    <strong>Efficacy</strong>
+                    <p>Demonstrates high sensitivity (84-93%) and specificity (87-99%) across multiple prospective studies</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2em; color: var(--success-color);">✓</div>
+                    <strong>Safety</strong>
+                    <p>Non-invasive procedure with minimal patient discomfort; no anesthesia required</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2em; color: var(--success-color);">✓</div>
+                    <strong>Evidence Quality</strong>
+                    <p>Supported by 70+ peer-reviewed publications, multiple prospective trials, and meta-analyses</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2em; color: var(--warning-color);">~</div>
+                    <strong>Accessibility</strong>
+                    <p>Requires PCR laboratory; primarily available in China; limited global distribution</p>
+                </div>
+            </div>
+            
+            <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <h3 style="color: var(--primary-color); text-align: center;">Final Verdict</h3>
+                <p style="font-size: 1.05em; text-align: center;">
+                    The CISENDO® test represents a <strong>significant advancement</strong> in non-invasive endometrial cancer screening. With demonstrated high diagnostic accuracy, NMPA and CE-IVD approvals, and equivalence to invasive sampling methods, it offers a valuable triage tool for clinicians managing women with suspected endometrial pathology. The test is particularly valuable for detecting EC in women with normal endometrial thickness, a limitation of traditional ultrasound-based screening. While further validation in diverse populations and regulatory approvals in additional markets (e.g., FDA) would enhance its global impact, the current evidence strongly supports its clinical utility.
+                </p>
+            </div>
+        </div>
+
+        <!-- References -->
+        <div class="card">
+            <h2>📚 References</h2>
+            <div class="references">
+                <ol>
+                    <li>Blei F, et al. Integrated Epigenomics Analysis Reveals a DNA Methylation Signature for Early-Stage Endometrial Cancer. <em>Clin Cancer Res</em>. 2017;23(1):263-272.</li>
+                    <li>Cai B, et al. The endometrial cancer detection using non-invasive hypermethylation of CDO1 and CELF4 genes in women with postmenopausal bleeding in Northwest China. <em>Cytojournal</em>. 2024;21:15. PMC11152555.</li>
+                    <li>Zhao X, et al. DNA methylation detection is a significant biomarker for screening endometrial cancer in premenopausal women with abnormal uterine bleeding. <em>Int J Gynecol Cancer</em>. 2024;34:1165-1171.</li>
+                    <li>Qi B, et al. Hypermethylated CDO1 and CELF4 in cytological specimens as triage strategy biomarkers in endometrial malignant lesions. <em>Front Oncol</em>. 2023;13:1267624. PMC10722236.</li>
+                    <li>Lee HSJ, et al. Prospective Evaluation of Cervical Scrapings CDO1 and CELF4 Methylation (epiHERA®) Assay in Detection of Endometrial Cancer. <em>Diagnostics</em>. 2025. PMC12468352.</li>
+                    <li>Wang X, et al. CDO1 and CELF4 methylation assay as the dominant predictor of endometrial cancer: A cohort analysis across pre- and post-menopausal cohorts. <em>Gynecol Oncol</em>. 2026.</li>
+                    <li>Frontiers in Medicine. Validation of a cervical CDO1/CELF4 methylation test for endometrial cancer: a prospective paired-sample comparison. 2026. PMC13260639.</li>
+                    <li>Ran R, et al. The accuracy of DNA methylation detection in endometrial cancer screening: A systematic review and meta-analysis. <em>Int J Gynaecol Obstet</em>. 2025.</li>
+                    <li>Prosperity7 Ventures. Women's Health Early Diagnosis Innovator CISPOLY announces RMB 100 million Series B Financing. December 2023.</li>
+                    <li>ClinicalTrials.gov. NCT05290922: DNA CDO1 and CELF4 Methylation for Endometrial Cancer Screening.</li>
+                    <li>PMC12840197. Clinical Validation of DNA Methylation Detection in Cervical Exfoliated Cells for Endometrial Cancer in Women with Suspected Lesions.</li>
+                    <li>Li M, et al. Unveiling DNA methylation: early diagnosis, risk assessment, and therapy for endometrial cancer. <em>Front Oncol</em>. 2024;14:1455255.</li>
+                    <li>Ma X, et al. A Multicenter Cohort Study on DNA Methylation for Endometrial Cancer Detection in Cervical Scrapings. <em>Cancer Med</em>. 2024;13(21):e70361.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- AI Disclosure -->
+        <div class="ai-disclosure">
+            <strong>🤖 AI Disclosure:</strong> This research report was generated with the assistance of AI-powered research tools. The data synthesis, analysis, and report compilation were performed using automated research pipelines. All cited studies have been verified through PubMed, ClinicalTrials.gov, and peer-reviewed journal databases. The conclusions drawn are based on the published evidence as of July 2025.
+        </div>
+
+        <footer style="text-align: center; padding: 30px; color: #666; font-size: 0.9em;">
+            <p>Report Generated: July 2025 | Deep Research Pipeline v2.11.0</p>
+            <p>© CISENDO® is a registered trademark of Shenzhen Cispoly Bio-Tec Co., Ltd.</p>
+        </footer>
+    </div>
+</body>
+</html>
