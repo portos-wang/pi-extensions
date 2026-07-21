@@ -1,0 +1,18 @@
+{
+  "name": "academic-research-skills",
+  "version": "3.18.0",
+  "description": "Production-grade academic research pipeline for pi: research → write → review → revise → finalize. 4 skills, 27 modes, 39-agent ensemble.",
+  "keywords": ["pi-package", "academic", "research", "writing", "review", "deep-research", "literature-review", "systematic-review", "peer-review", "scholarly-publishing"],
+  "author": {
+    "name": "Cheng-I Wu",
+    "url": "https://github.com/Imbad0202"
+  },
+  "homepage": "https://github.com/Imbad0202/academic-research-skills",
+  "repository": "https://github.com/Imbad0202/academic-research-skills",
+  "license": "CC-BY-NC-4.0",
+  "pi": {
+    "extensions": ["./extensions"],
+    "skills": ["./skills"],
+    "prompts": ["./prompts"]
+  }
+}
