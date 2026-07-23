@@ -38,8 +38,13 @@ A production-grade academic research pipeline for pi, originally developed for C
 #### Installation
 
 ```bash
-# Via pi package manager
-pi install academic-research-skills-pi-extension
+# From this repository
+git clone https://github.com/portos-wang/pi-extensions.git
+cd pi-extensions
+pi install ./academic-research-skills-pi-extension
+
+# Or install globally for all projects
+pi install -g ./academic-research-skills-pi-extension
 
 # Or manually copy to ~/.pi/agent/extensions/
 cp -r academic-research-skills-pi-extension ~/.pi/agent/extensions/
@@ -155,6 +160,9 @@ cd pi-extensions
 
 # Install the academic research skills extension
 pi install ./academic-research-skills-pi-extension
+
+# Or install from a specific project directory
+pi install /path/to/pi-extensions/academic-research-skills-pi-extension
 ```
 
 ### Verify Installation
