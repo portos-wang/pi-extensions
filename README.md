@@ -12,7 +12,6 @@ This repository serves as a centralized hub for porting plugins, extensions, hoo
 pi-extensions/
 ├── academic-research-skills-pi-extension/  # Converted academic research pipeline
 ├── convert-to-pi/                          # Skill for converting CC/Codex → pi
-├── test/                                   # Test files and examples
 └── README.md
 ```
 
@@ -137,12 +136,6 @@ convert-to-pi/
     ├── extension-skeleton.ts  # Basic extension template
     └── tool-skeleton.ts       # Custom tool template
 ```
-
----
-
-### 3. Test Directory
-
-Contains test files and examples used during development and conversion testing. This directory is excluded from the repository via `.gitignore`.
 
 ---
 
