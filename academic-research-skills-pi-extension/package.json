@@ -1,6 +1,6 @@
 {
   "name": "@portos-wang/academic-research-skills-pi-extension",
-  "version": "3.18.0",
+  "version": "0.11.0",
   "description": "Production-grade academic research pipeline for pi: research → write → review → revise → finalize. 4 skills, 27 modes, 39-agent ensemble.",
   "keywords": ["pi-package", "academic", "research", "writing", "review", "deep-research", "literature-review", "systematic-review", "peer-review", "scholarly-publishing"],
   "author": {
