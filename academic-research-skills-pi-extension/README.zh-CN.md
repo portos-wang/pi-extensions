@@ -5,7 +5,25 @@
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Sponsor](https://img.shields.io/badge/sponsor-Buy%20Me%20a%20Coffee-orange?logo=buy-me-a-coffee)](https://buymeacoffee.com/crucify020v)
 
-[English](README.md) | [繁體中文版](README.zh-TW.md) | [日本語版](README.ja-JP.md) | [한국어](README.ko-KR.md)
+[English](README.md)
+
+---
+
+## ⚠️ 致谢与声明
+
+**本项目是 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) 的社区维护 PI 移植版本，原作者为 [Imbad0202](https://github.com/Imbad0202)。**
+
+所有功劳归于原作者——研究方法论、Agent 架构、写作规范以及详尽的文档都是原作者的成果。本移植版本仅将插件适配为可在 [PI](https://github.com/earendil-works/pi-coding-agent) 上运行，而非 Claude Code。
+
+**如果您使用了本软件，请支持原作者：**
+
+- ⭐ 给原仓库加星：[Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills)
+- ☕ 请作者喝咖啡：[buymeacoffee.com/crucify020v](https://buymeacoffee.com/crucify020v)
+- 📄 引用该工作：[DOI 10.5281/zenodo.20696614](https://doi.org/10.5281/zenodo.20696614)
+
+如需完整的 Claude Code 体验，请使用[原仓库](https://github.com/Imbad0202/academic-research-skills)。
+
+---
 
 一套完整的学术研究技能包，涵盖从研究到论文出版的全流程。原为 [Claude Code](https://github.com/Imbad0202/academic-research-skills) 开发，现也可作为 [PI](https://github.com/earendil-works/pi-coding-agent) 扩展使用。
 

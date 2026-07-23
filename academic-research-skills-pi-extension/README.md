@@ -5,7 +5,25 @@
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Sponsor](https://img.shields.io/badge/sponsor-Buy%20Me%20a%20Coffee-orange?logo=buy-me-a-coffee)](https://buymeacoffee.com/crucify020v)
 
-[简体中文版](README.zh-CN.md) | [繁體中文版](README.zh-TW.md) | [日本語版](README.ja-JP.md) | [한국어](README.ko-KR.md)
+[简体中文版](README.zh-CN.md)
+
+---
+
+## ⚠️ Attribution & Thanks
+
+**This is a community-maintained PI port of the original [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) by [Imbad0202](https://github.com/Imbad0202).**
+
+All credit for the original work — the research methodology, agent architecture, writing protocols, and extensive documentation — goes to the original author. This port simply adapts the plugin to work with [PI](https://github.com/earendil-works/pi-coding-agent) instead of Claude Code.
+
+**If you use this software, please support the original author:**
+
+- ⭐ Star the original repo: [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills)
+- ☕ Buy Me a Coffee: [buymeacoffee.com/crucify020v](https://buymeacoffee.com/crucify020v)
+- 📄 Cite the work: [DOI 10.5281/zenodo.20696614](https://doi.org/10.5281/zenodo.20696614)
+
+For the full Claude Code experience, please use the [original repository](https://github.com/Imbad0202/academic-research-skills).
+
+---
 
 A comprehensive suite of skills for academic research, covering the full pipeline from research to publication. Originally developed for [Claude Code](https://github.com/Imbad0202/academic-research-skills), now also available as a [PI](https://github.com/earendil-works/pi-coding-agent) extension.
 
