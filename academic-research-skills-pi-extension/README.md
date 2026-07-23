@@ -1,4 +1,4 @@
-# Academic Research Skills for Claude Code
+# Academic Research Skills for Claude Code & PI
 
 [![Version](https://img.shields.io/badge/version-v3.18.0-blue)](https://github.com/Imbad0202/academic-research-skills/releases/tag/v3.18.0)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20696614-blue)](https://doi.org/10.5281/zenodo.20696614)
@@ -7,16 +7,46 @@
 
 [简体中文版](README.zh-CN.md) | [繁體中文版](README.zh-TW.md) | [日本語版](README.ja-JP.md) | [한국어](README.ko-KR.md)
 
-A comprehensive suite of Claude Code skills for academic research, covering the full pipeline from research to publication.
+A comprehensive suite of skills for academic research, covering the full pipeline from research to publication. Originally developed for [Claude Code](https://github.com/Imbad0202/academic-research-skills), now also available as a [PI](https://github.com/earendil-works/pi-coding-agent) extension.
 
-**Install in 30 seconds** (Claude Code CLI / VS Code / JetBrains, v3.7.0+):
+---
+
+## Choose Your Platform
+
+This package supports two platforms. Choose the installation method that matches your setup:
+
+### 🤖 Claude Code
+
+If you use Claude Code, follow the [original author's installation](https://github.com/Imbad0202/academic-research-skills):
 
 ```text
 /plugin marketplace add Imbad0202/academic-research-skills
 /plugin install academic-research-skills
 ```
 
-Then try `/ars-plan` to walk through your paper structure via Socratic dialogue, or jump to [Quick install](#quick-install) for prerequisites and the traditional symlink flow.
+For detailed Claude Code instructions, see [Quick install (Claude Code)](#quick-install-claude-code) below.
+
+### 🔧 PI
+
+If you use [PI](https://github.com/earendil-works/pi-coding-agent), install via npm:
+
+```bash
+pi install npm:@portos-wang/academic-research-skills-pi-extension
+```
+
+Or clone and install locally:
+
+```bash
+git clone https://github.com/portos-wang/pi-extensions.git
+cd pi-extensions
+pi install ./academic-research-skills-pi-extension
+```
+
+For detailed PI instructions, see [Quick install (PI)](#quick-install-pi) below.
+
+---
+
+Then try `/ars-plan` to walk through your paper structure via Socratic dialogue, or jump to [Quick install](#quick-install-claude-code) for prerequisites and the traditional symlink flow.
 
 > **AI is your copilot, not the pilot.** This tool won't write your paper for you. It handles the grunt work — hunting down references, formatting citations, verifying data, checking logical consistency — so you can focus on the parts that actually require your brain: defining the question, choosing the method, interpreting what the data means, and writing the sentence after "I argue that."
 >
@@ -69,6 +99,37 @@ The architecture doc supersedes the sprawling pipeline description that used to 
 **Using Codex CLI?** Install the sibling distribution instead: [`Imbad0202/academic-research-skills-codex`](https://github.com/Imbad0202/academic-research-skills-codex) — same workflow content, Codex-native packaging as a single `$academic-research-suite` skill with `ars-*` aliases.
 
 **Third-party platforms and integrations** that wrap or host ARS are listed in [THIRD_PARTY.md](THIRD_PARTY.md) — community-submitted and not reviewed or endorsed by the maintainer.
+
+---
+
+## Quick install (PI)
+
+If you use [PI](https://github.com/earendil-works/pi-coding-agent) instead of Claude Code:
+
+**Prerequisites**
+
+- [PI](https://github.com/earendil-works/pi-coding-agent) (latest version)
+- An API key for your preferred provider (Anthropic, OpenAI, etc.)
+
+**Install via npm:**
+
+```bash
+pi install npm:@portos-wang/academic-research-skills-pi-extension
+```
+
+**Or clone and install locally:**
+
+```bash
+git clone https://github.com/portos-wang/pi-extensions.git
+cd pi-extensions
+pi install ./academic-research-skills-pi-extension
+```
+
+**Verify it works:** Start PI and run `/ars-plan` to begin a Socratic dialogue for paper planning.
+
+**Note:** The PI version includes the same core skills (research, writing, review, pipeline) as the Claude Code version. Some Claude Code-specific features (slash commands like `/ars-mark-read`, hooks) may have limited functionality in PI.
+
+---
 
 ## Performance & cost
 

@@ -1,4 +1,4 @@
-# Claude Code를 위한 Academic Research Skills
+# Academic Research Skills — Claude Code & PI용
 
 [![Version](https://img.shields.io/badge/version-v3.18.0-blue)](https://github.com/Imbad0202/academic-research-skills/releases/tag/v3.18.0)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20696614-blue)](https://doi.org/10.5281/zenodo.20696614)
@@ -7,14 +7,44 @@
 
 [English](README.md) | [简体中文版](README.zh-CN.md) | [繁體中文版](README.zh-TW.md) | [日本語版](README.ja-JP.md)
 
-학술 연구를 위한 Claude Code 통합 스킬 모음으로, 연구 설계부터 논문 작성·검토·출판 준비까지의 전체 워크플로를 지원합니다.
+학술 연구를 위한 통합 스킬 모음으로, 연구 설계부터 논문 작성·검토·출판 준비까지의 전체 워크플로를 지원합니다. 원래 [Claude Code](https://github.com/Imbad0202/academic-research-skills)용으로 개발되었으며,現在 [PI](https://github.com/earendil-works/pi-coding-agent) 확장으로도 사용할 수 있습니다.
 
-**30초 만에 설치**(Claude Code CLI / VS Code / JetBrains, v3.7.0+):
+---
+
+## 플랫폼 선택
+
+이 패키지는 두 가지 플랫폼을 지원합니다. 사용 중인 환경에 맞는 설치 방법을 선택하세요:
+
+### 🤖 Claude Code
+
+Claude Code를 사용하는 경우, [원저자의 설치 방법](https://github.com/Imbad0202/academic-research-skills)을 따르세요:
 
 ```text
 /plugin marketplace add Imbad0202/academic-research-skills
 /plugin install academic-research-skills
 ```
+
+Claude Code 상세 설치 방법은 [빠른 설치（Claude Code）](#빠른-설치claude-code)를 참조하세요.
+
+### 🔧 PI
+
+[PI](https://github.com/earendil-works/pi-coding-agent)를 사용하는 경우, npm으로 설치할 수 있습니다:
+
+```bash
+pi install npm:@portos-wang/academic-research-skills-pi-extension
+```
+
+또는 클론 후 로컬에 설치:
+
+```bash
+git clone https://github.com/portos-wang/pi-extensions.git
+cd pi-extensions
+pi install ./academic-research-skills-pi-extension
+```
+
+PI 상세 설치 방법은 [빠른 설치（PI）](#빠른-설치pi)를 참조하세요.
+
+---
 
 그런 다음 `/ars-plan`을 실행해 소크라테스식 대화로 논문 구조를 짜보거나, 사전 요건과 전통적인 심볼릭 링크 방식을 보려면 [빠른 설치](#빠른-설치)로 이동하세요.
 
@@ -65,6 +95,37 @@ v3.3은 [**PaperOrchestra**](https://arxiv.org/abs/2604.05018) (Song, Song, Pfis
 **Claude Science를 사용하시나요?** 네 개의 스킬을 바로 가져올 수 있습니다: **Skills → Import from GitHub**에서 `https://github.com/Imbad0202/academic-research-skills`를 붙여넣고 **Preview** → **Import 4 skills**(이 저장소 v3.14.0+ 필요 — 가져오기 도구는 marketplace manifest에 명시된 스킬 경로를 읽습니다). 가져오기는 특정 시점의 스냅샷입니다: ARS 업데이트 후에는 다시 가져오세요. 가져온 스킬은 ARS 방법론(연구/작성/리뷰 프로토콜)을 담습니다. Claude Code 전용 메커니즘 — slash commands, hooks, 서브에이전트 오케스트레이션 — 은 이전되지 않습니다. 자세한 내용은 [docs/SETUP.md](docs/SETUP.md) Method 5를 참조하세요.
 
 **Codex CLI를 사용하시나요?** 대신 자매 배포판을 설치하세요: [`Imbad0202/academic-research-skills-codex`](https://github.com/Imbad0202/academic-research-skills-codex) — 동일한 워크플로 콘텐츠를, `ars-*` 별칭을 갖는 단일 `$academic-research-suite` 스킬로 Codex 네이티브 패키징한 것입니다.
+
+---
+
+## 빠른 설치 (PI)
+
+Claude Code 대신 [PI](https://github.com/earendil-works/pi-coding-agent)를 사용하는 경우:
+
+**사전 요건**
+
+- [PI](https://github.com/earendil-works/pi-coding-agent) (최신 버전)
+- 선호하는 프로바이더의 API 키 (Anthropic, OpenAI 등)
+
+**npm으로 설치:**
+
+```bash
+pi install npm:@portos-wang/academic-research-skills-pi-extension
+```
+
+**또는 클론 후 로컬에 설치:**
+
+```bash
+git clone https://github.com/portos-wang/pi-extensions.git
+cd pi-extensions
+pi install ./academic-research-skills-pi-extension
+```
+
+**설치 확인:** PI를 시작하고 `/ars-plan`을 실행하여 소크라테스식 대화로 논문 구조를 계획할 수 있습니다.
+
+**참고:** PI 버전은 Claude Code 버전과 동일한 코어 스킬(연구, 작성, 리뷰, 파이프라인)을 포함합니다. 일부 Claude Code 전용 기능(`/ars-mark-read` 등의 slash commands, hooks)은 PI에서 기능이 제한될 수 있습니다.
+
+---
 
 ## 성능 & 비용
 

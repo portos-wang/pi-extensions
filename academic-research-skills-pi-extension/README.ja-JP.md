@@ -1,4 +1,4 @@
-# Claude Code 向け Academic Research Skills
+# Academic Research Skills — Claude Code & PI 向け
 
 [![Version](https://img.shields.io/badge/version-v3.18.0-blue)](https://github.com/Imbad0202/academic-research-skills/releases/tag/v3.18.0)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20696614-blue)](https://doi.org/10.5281/zenodo.20696614)
@@ -7,16 +7,46 @@
 
 [English](README.md) | [简体中文版](README.zh-CN.md) | [繁體中文版](README.zh-TW.md) | [한국어](README.ko-KR.md)
 
-学術研究のための Claude Code スキル統合スイート。研究から論文公開までの全工程をカバーします。
+学術研究のためのスキル統合スイート。研究から論文公開までの全工程をカバーします。元は [Claude Code](https://github.com/Imbad0202/academic-research-skills) 向けに開発されましたが、[PI](https://github.com/earendil-works/pi-coding-agent) 拡張としても利用可能です。
 
-**30秒でインストール**（Claude Code CLI / VS Code / JetBrains、v3.7.0+）:
+---
+
+## プラットフォームの選択
+
+このパッケージは2つのプラットフォームをサポートしています。お使いの環境に合わせたインストール方法を選択してください：
+
+### 🤖 Claude Code
+
+Claude Code をお使いの場合は、[元の作者のインストール方法](https://github.com/Imbad0202/academic-research-skills)に従ってください：
 
 ```text
 /plugin marketplace add Imbad0202/academic-research-skills
 /plugin install academic-research-skills
 ```
 
-その後、`/ars-plan` を試してソクラテス式対話で論文構成を整理するか、前提条件と従来のシンボリックリンク方式については [クイックインストール](#クイックインストール) を参照してください。
+Claude Code の詳細なインストール手順は [クイックインストール（Claude Code）](#クイックインストールclaude-code) を参照してください。
+
+### 🔧 PI
+
+[PI](https://github.com/earendil-works/pi-coding-agent) をお使いの場合は、npm でインストールできます：
+
+```bash
+pi install npm:@portos-wang/academic-research-skills-pi-extension
+```
+
+またはクローンしてローカルにインストール：
+
+```bash
+git clone https://github.com/portos-wang/pi-extensions.git
+cd pi-extensions
+pi install ./academic-research-skills-pi-extension
+```
+
+PI の詳細なインストール手順は [クイックインストール（PI）](#クイックインストールpi) を参照してください。
+
+---
+
+インストール後、`/ars-plan` を試してソクラテス式対話で論文構成を整理するか、前提条件と従来のシンボリックリンク方式については [クイックインストール](#クイックインストール) を参照してください。
 
 > **AI はあなたの副操縦士であり、操縦士ではありません。** このツールはあなたの代わりに論文を書きません。参考文献の探索、引用のフォーマット、データ検証、論理的整合性チェックといった泥臭い作業を引き受けることで、本当に頭を使う必要のある部分 — 問いの定義、手法の選択、データの意味の解釈、「私はこう主張する」に続く文を書くこと — にあなたが集中できるようにします。
 >
@@ -64,6 +94,37 @@ v3.3 は [**PaperOrchestra**](https://arxiv.org/abs/2604.05018)（Song, Song, Pf
 **Claude Science をお使いですか？** 4 つのスキルは直接インポートできます: **Skills → Import from GitHub** で `https://github.com/Imbad0202/academic-research-skills` を貼り付け、**Preview** → **Import 4 skills**（本リポジトリ v3.14.0+ が必要 — インポーターは marketplace manifest に明示されたスキルパスを読み取ります）。インポートはその時点のスナップショットです: ARS の更新後は再インポートしてください。インポートされたスキルは ARS の方法論（研究・執筆・査読プロトコル）を伝えます。Claude Code 固有の仕組み — slash commands、hooks、サブエージェントオーケストレーション — は移行されません。詳細は [docs/SETUP.md](docs/SETUP.md) の Method 5 を参照。
 
 **Codex CLI を使用していますか?** 代わりに姉妹ディストリビューションをインストールしてください: [`Imbad0202/academic-research-skills-codex`](https://github.com/Imbad0202/academic-research-skills-codex) — 同じワークフローコンテンツ、`ars-*` エイリアスを持つ単一の `$academic-research-suite` スキルとしての Codex ネイティブパッケージング。
+
+---
+
+## クイックインストール（PI）
+
+Claude Code の代わりに [PI](https://github.com/earendil-works/pi-coding-agent) を使用する場合：
+
+**前提条件**
+
+- [PI](https://github.com/earendil-works/pi-coding-agent)（最新バージョン）
+- お好みのプロバイダーの API キー（Anthropic、OpenAI など）
+
+**npm でインストール：**
+
+```bash
+pi install npm:@portos-wang/academic-research-skills-pi-extension
+```
+
+**またはクローンしてローカルにインストール：**
+
+```bash
+git clone https://github.com/portos-wang/pi-extensions.git
+cd pi-extensions
+pi install ./academic-research-skills-pi-extension
+```
+
+**インストール確認：** PI を起動し、`/ars-plan` を実行してソクラテス式対話で論文構成を整理できます。
+
+**注意：** PI バージョンは Claude Code バージョンと同じコアスキル（研究、執筆、査読、パイプライン）を含みます。一部の Claude Code 固有機能（`/ars-mark-read` などの slash commands、hooks）は PI では機能が制限される場合があります。
+
+---
 
 ## パフォーマンス＆コスト
 

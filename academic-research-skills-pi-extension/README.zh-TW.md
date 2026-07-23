@@ -1,4 +1,4 @@
-# Academic Research Skills for Claude Code
+# Academic Research Skills — Claude Code & PI 版
 
 [![Version](https://img.shields.io/badge/version-v3.18.0-blue)](https://github.com/Imbad0202/academic-research-skills/releases/tag/v3.18.0)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20696614-blue)](https://doi.org/10.5281/zenodo.20696614)
@@ -7,14 +7,44 @@
 
 [English](README.md) | [简体中文版](README.zh-CN.md) | [日本語版](README.ja-JP.md) | [한국어](README.ko-KR.md)
 
-一套完整的學術研究 Claude Code 技能包，涵蓋從研究到論文出版的全流程。
+一套完整的學術研究技能包，涵蓋從研究到論文出版的全流程。原為 [Claude Code](https://github.com/Imbad0202/academic-research-skills) 開發，現也可作為 [PI](https://github.com/earendil-works/pi-coding-agent) 擴充套件使用。
 
-**30 秒安裝**（Claude Code CLI / VS Code / JetBrains，v3.7.0+）：
+---
+
+## 選擇你的平台
+
+本套件支援兩個平台，請根據你的環境選擇安裝方式：
+
+### 🤖 Claude Code
+
+如果你使用 Claude Code，請參考[原作者的安裝方式](https://github.com/Imbad0202/academic-research-skills)：
 
 ```text
 /plugin marketplace add Imbad0202/academic-research-skills
 /plugin install academic-research-skills
 ```
+
+詳細 Claude Code 安裝說明請看 [快速安裝（Claude Code）](#快速安裝claude-code)。
+
+### 🔧 PI
+
+如果你使用 [PI](https://github.com/earendil-works/pi-coding-agent)，可透過 npm 安裝：
+
+```bash
+pi install npm:@portos-wang/academic-research-skills-pi-extension
+```
+
+或複製後本地安裝：
+
+```bash
+git clone https://github.com/portos-wang/pi-extensions.git
+cd pi-extensions
+pi install ./academic-research-skills-pi-extension
+```
+
+詳細 PI 安裝說明請看 [快速安裝（PI）](#快速安裝pi)。
+
+---
 
 裝完跑 `/ars-plan`，ARS 會用蘇格拉底對話幫你規劃章節結構。需要前置條件或傳統 symlink 安裝請看 [快速安裝](#快速安裝)。
 
@@ -66,6 +96,37 @@ v3.3 的靈感來自 [**PaperOrchestra**](https://arxiv.org/abs/2604.05018)（So
 **使用 Claude Science？** 四個 skill 可直接匯入：**Skills → Import from GitHub**，貼上 `https://github.com/Imbad0202/academic-research-skills`，按 **Preview**，再按 **Import 4 skills**（需本 repo v3.14.0+——匯入器讀取 marketplace manifest 中明列的 skill 路徑）。匯入是單次快照：ARS 更新後需重新匯入。匯入的 skill 承載 ARS 方法論（研究／寫作／審查協定）；Claude Code 專屬機制——slash commands、hooks、subagent 編排——不會轉移。細節見 [docs/SETUP.zh-TW.md](docs/SETUP.zh-TW.md) 方法五。
 
 **用 Codex CLI？** 請改裝姊妹版：[`Imbad0202/academic-research-skills-codex`](https://github.com/Imbad0202/academic-research-skills-codex)。同一套 workflow 內容，Codex 原生包裝為單一 `$academic-research-suite` skill，提供 `ars-*` 別名。
+
+---
+
+## 快速安裝（PI）
+
+如果你使用 [PI](https://github.com/earendil-works/pi-coding-agent) 而非 Claude Code：
+
+**前置條件**
+
+- [PI](https://github.com/earendil-works/pi-coding-agent)（最新版本）
+- 你的首選 provider 的 API key（Anthropic、OpenAI 等）
+
+**透過 npm 安裝：**
+
+```bash
+pi install npm:@portos-wang/academic-research-skills-pi-extension
+```
+
+**或複製後本地安裝：**
+
+```bash
+git clone https://github.com/portos-wang/pi-extensions.git
+cd pi-extensions
+pi install ./academic-research-skills-pi-extension
+```
+
+**驗證安裝：** 啟動 PI，執行 `/ars-plan` 即可開始蘇格拉底式論文規劃對話。
+
+**注意：** PI 版本包含與 Claude Code 版本相同的核心技能（研究、寫作、審查、pipeline）。部分 Claude Code 專屬功能（如 `/ars-mark-read` 等 slash commands、hooks）在 PI 中可能功能有限。
+
+---
 
 ## 效能與費用
 
