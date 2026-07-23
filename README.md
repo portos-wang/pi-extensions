@@ -22,10 +22,13 @@ pi-extensions/
 ### 1. Academic Research Skills (PI Extension)
 
 **Source:** [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills)
-**Version:** 3.18.0
+**Version:** 0.11.0
 **License:** CC-BY-NC-4.0
+**npm:** [@portos-wang/academic-research-skills-pi-extension](https://www.npmjs.com/package/@portos-wang/academic-research-skills-pi-extension)
 
 A production-grade academic research pipeline for pi, originally developed for Claude Code. This extension provides a comprehensive suite of skills covering the full academic workflow from research to publication.
+
+> ⚠️ **Attribution:** This is a community-maintained PI port. All credit goes to the original author [Imbad0202](https://github.com/Imbad0202). Please support the original project!
 
 #### Features
 
@@ -37,17 +40,24 @@ A production-grade academic research pipeline for pi, originally developed for C
 
 #### Installation
 
+**Option 1: Install via npm (recommended)**
+
 ```bash
-# From this repository
+pi install npm:@portos-wang/academic-research-skills-pi-extension
+```
+
+**Option 2: Install from GitHub**
+
+```bash
+pi install git:github.com/portos-wang/pi-extensions
+```
+
+**Option 3: Install from local clone**
+
+```bash
 git clone https://github.com/portos-wang/pi-extensions.git
 cd pi-extensions
 pi install ./academic-research-skills-pi-extension
-
-# Or install globally for all projects
-pi install -g ./academic-research-skills-pi-extension
-
-# Or manually copy to ~/.pi/agent/extensions/
-cp -r academic-research-skills-pi-extension ~/.pi/agent/extensions/
 ```
 
 #### Available Commands
@@ -154,15 +164,16 @@ convert-to-pi/
 ### Installation
 
 ```bash
-# Clone the repository
+# Install via npm (recommended)
+pi install npm:@portos-wang/academic-research-skills-pi-extension
+
+# Or install from GitHub
+pi install git:github.com/portos-wang/pi-extensions
+
+# Or clone and install locally
 git clone https://github.com/portos-wang/pi-extensions.git
 cd pi-extensions
-
-# Install the academic research skills extension
 pi install ./academic-research-skills-pi-extension
-
-# Or install from a specific project directory
-pi install /path/to/pi-extensions/academic-research-skills-pi-extension
 ```
 
 ### Verify Installation
